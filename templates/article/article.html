@@ -1,0 +1,32 @@
+{% extends 'article/base.html' %}
+
+{% block main %}
+<article class="post post-{{ article.pk }}">
+    <header class="entry-header">
+        <h1 class="entry-title">{{ article.title }}</h1>
+        <div class="entry-meta">
+            <span class="post-category">
+                <a href="{% url 'article:get_corpus' article.corpus.name %}">{{ article.corpus.name }}</a></span>
+            <span class="post-date">
+                <a href="#">
+                    <time class="entry-date" datetime="{{ article.create_time }}">
+                        {{ article.create_time }}
+                    </time>
+                </a>
+            </span>
+            <span class="views-count"><a href="#"></a></span>
+        </div>
+    </header>
+    <div class="entry-content clearfix">
+        {{ article.body | safe }}
+        <div class="widget-tag-cloud">
+            <ul>
+                标签：
+                {% for tag in article.tags.all %}
+                <li><a href="{% url 'article:get_tag' tag.name %}"># {{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</article>
+{% endblock main %}
