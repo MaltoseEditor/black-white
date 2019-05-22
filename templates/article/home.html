@@ -9,7 +9,7 @@
         </h1>
         <div class="entry-meta">
             <span class="post-category">
-                <a href="{% url 'article:get_corpus' article.corpus.name %}">{{ article.corpus.name }}</a>
+                <a href="{% url 'article:get_corpus' article.corpus %}">{{ article.corpus.name }}</a>
             </span>
             <span class="post-date">
                 <time style="color: #000;" datetime="{{ article.create_time }}">

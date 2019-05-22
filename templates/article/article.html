@@ -6,7 +6,7 @@
         <h1 class="entry-title">{{ article.title }}</h1>
         <div class="entry-meta">
             <span class="post-category">
-                <a href="{% url 'article:get_corpus' article.corpus.name %}">{{ article.corpus.name }}</a></span>
+                <a href="{% url 'article:get_corpus' article.corpus %}">{{ article.corpus.name }}</a></span>
             <span class="post-date">
                 <a href="#">
                     <time class="entry-date" datetime="{{ article.create_time }}">
